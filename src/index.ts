@@ -1,8 +1,8 @@
 import fastify from "fastify";
 import dotenv from 'dotenv'
 import {Webhooks} from '@octokit/webhooks'
-import fetchPatch from "./utils/utils";
-import { aiReview,postReview } from "./utils/utils";
+import fetchPatch from "./utils/utils.js";
+import { aiReview,postReview } from "./utils/utils.js";
 import { Octokit } from "@octokit/rest";
 dotenv.configDotenv()
 const app = fastify()

@@ -1,4 +1,4 @@
-import { PullRequestFetchTyes ,PatchesTypes,PostReviewTypes } from "../types";
+import { PullRequestFetchTyes ,PatchesTypes,PostReviewTypes } from "../types/index.js";
 import { Octokit } from "@octokit/rest";
 export default async function fetchPatch({owner,repo,prNumber}:PullRequestFetchTyes) {
     const octokit = new Octokit({
