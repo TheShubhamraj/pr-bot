@@ -66,7 +66,7 @@ app.post("/webhook", async (req, reply) => {
 
 
 // server listening 
-app.listen({port:port },async()=>{
+app.listen({ port: port, host: "0.0.0.0" },async()=>{
     console.log(`server is listening on http://localhost:${port}`);
     const octokit = new Octokit({
       auth:process.env.GITHUB_TOKEN
