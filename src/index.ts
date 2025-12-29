@@ -55,10 +55,14 @@ app.get("/health",(req,res)=>{
 //webhook endpoint
 app.post("/webhook", async (req, reply) => {
   try {
+    const payload =
+      Buffer.isBuffer(req.body)
+        ? req.body.toString("utf8")
+        : JSON.stringify(req.body);
     await webhooks.verifyAndReceive({
       id: req.headers["x-github-delivery"] as string,
       name: req.headers["x-github-event"] as string,
-      payload: req.body as string,
+      payload,
       signature: req.headers["x-hub-signature-256"] as string,
     });
 
